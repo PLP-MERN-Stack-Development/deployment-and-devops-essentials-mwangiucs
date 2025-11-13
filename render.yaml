@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: socket-chat-backend
+    env: node
+    rootDir: app/server
+    buildCommand: npm ci
+    startCommand: npm start
+    autoDeploy: true
+    healthCheckPath: /health
+    plan: free
+    envVars:
+      - key: CLIENT_URL
+        sync: false

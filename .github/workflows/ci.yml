@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install client deps
+        working-directory: app/client
+        run: |
+          npm ci
+
+      - name: Build client
+        working-directory: app/client
+        env:
+          VITE_SOCKET_URL: http://localhost:5000
+        run: |
+          npm run build
+
+      - name: Install server deps
+        working-directory: app/server
+        run: |
+          npm ci
+
+      - name: Verify server starts (no run)
+        working-directory: app/server
+        run: |
+          node -e "require('fs').accessSync('server.js')"

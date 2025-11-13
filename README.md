@@ -74,4 +74,28 @@ Your work will be automatically submitted when you push to your GitHub Classroom
 - [Render Documentation](https://render.com/docs)
 - [Railway Documentation](https://docs.railway.app/)
 - [Vercel Documentation](https://vercel.com/docs)
-- [Netlify Documentation](https://docs.netlify.com/) 
+- [Netlify Documentation](https://docs.netlify.com/)
+
+## Deployment (Render + Vercel)
+
+### Backend on Render
+- Push this repository to GitHub.
+- Create a new Web Service on Render and connect the repo. Render will read `render.yaml`.
+- Settings to verify:
+  - Root directory: `app/server`
+  - Build command: `npm ci`
+  - Start command: `npm start`
+  - Health check path: `/health`
+- Environment variables:
+  - `CLIENT_URL` = temporary value (e.g., `http://localhost:5173`), then update to your Vercel URL after frontend deploy.
+- Deploy and note the backend URL (e.g., `https://your-render-service.onrender.com`).
+
+### Frontend on Vercel
+- Create a new project in Vercel and import the same GitHub repo.
+- Vercel uses `vercel.json` with `rootDirectory: app/client`.
+- Environment variables:
+  - `VITE_SOCKET_URL` = your Render backend URL (e.g., `https://your-render-service.onrender.com`).
+- Deploy and note the frontend URL (e.g., `https://your-app.vercel.app`).
+
+### Finalize CORS
+- In Render → Service → Environment, update `CLIENT_URL` to your Vercel frontend URL and redeploy the backend.

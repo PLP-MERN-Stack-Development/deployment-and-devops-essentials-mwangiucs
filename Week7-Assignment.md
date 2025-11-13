@@ -96,3 +96,65 @@ Learn how to deploy a full MERN stack application to production, implement CI/CD
    - Documentation of your monitoring setup
 7. Your submission will be automatically graded based on the criteria in the autograding configuration
 8. The instructor will review your submission after the autograding is complete 
+ 
+## ✅ Progress Checklist
+ 
+- **Initialization**
+   - [ ] Confirm working MERN repo is ready (link/path): <repo-link-or-path>
+   - [ ] Choose hosting
+     - [ ] Backend: Render / Railway / Heroku
+     - [ ] Frontend: Vercel / Netlify / GitHub Pages
+   - [ ] Create MongoDB Atlas cluster and DB user
+   - [ ] Capture Atlas connection string (no secrets in repo)
+ 
+- **Task 1: Prep for Production**
+   - [ ] React build optimized (code-splitting, prod build)
+   - [ ] Frontend env vars configured (e.g., `VITE_API_BASE_URL` or `REACT_APP_API_BASE_URL`)
+   - [ ] Express error handling and centralized logger
+   - [ ] Secure headers (e.g., `helmet`) and CORS as needed
+   - [ ] Backend env vars and config
+   - [ ] DB connection pooling and health check endpoint
+ 
+- **Task 2: Deploy Backend**
+   - [ ] Create project on chosen platform
+   - [ ] Add env vars (DB URI, JWT secrets, origins)
+   - [ ] Enable CI/CD from GitHub
+   - [ ] HTTPS enabled (platform default or custom cert)
+   - [ ] Monitoring/logging configured
+ 
+- **Task 3: Deploy Frontend**
+   - [ ] Build settings configured
+   - [ ] Env vars set (API base URL points to deployed backend)
+   - [ ] CI/CD from GitHub enabled
+   - [ ] HTTPS enabled
+   - [ ] Asset caching strategy verified
+ 
+- **Task 4: CI/CD Pipelines**
+   - [ ] GitHub Actions workflow for lint/test/build
+   - [ ] Auto-deploy on successful builds
+   - [ ] Staging and production environments
+   - [ ] Rollback strategy documented
+ 
+- **Task 5: Monitoring & Maintenance**
+   - [ ] Health checks and uptime monitoring
+   - [ ] Error tracking (e.g., Sentry) wired
+   - [ ] Server resource and API performance tracking
+   - [ ] Maintenance plan (updates, backups, rollback docs)
+ 
+- **Documentation**
+   - [ ] `.env.example` added (no secrets)
+   - [ ] Deployment configs/scripts committed
+   - [ ] README updated with deployment instructions
+ 
+## 🔗 Deployment URLs
+- **Frontend URL**: <https://your-frontend.example>
+- **Backend API URL**: <https://your-backend.example>
+ 
+## 🖼️ Screenshots To Collect
+- [ ] CI pipeline run (passing)
+- [ ] CD deployment logs
+- [ ] Uptime monitor dashboard
+- [ ] Error tracker dashboard
+ 
+## 📝 Notes
+- Add any platform-specific caveats or decisions here.
